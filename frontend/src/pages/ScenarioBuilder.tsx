@@ -198,6 +198,33 @@ export default function ScenarioBuilder() {
             </div>
           </div>
 
+          {/* Constraints */}
+          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-3">
+              Constraints
+            </h3>
+            <div className="space-y-2">
+              <ConstraintBadge
+                label="Stocking rate"
+                value={`${base.constraints.stocking_rate}/ha`}
+                ok={base.constraints.stocking_rate_ok}
+                warning={`exceeds ${baselineParams.max_stocking_rate}/ha max`}
+              />
+              <ConstraintBadge
+                label="Fallow ratio"
+                value={`${base.constraints.fallow_ratio}%`}
+                ok={base.constraints.fallow_ratio_ok}
+                warning={`below ${baselineParams.min_fallow_pct}% minimum`}
+              />
+              <ConstraintBadge
+                label="Total acres"
+                value={`${base.constraints.total_acres_allocated}/${baselineParams.total_acres}`}
+                ok={base.constraints.total_acres_ok}
+                warning="does not equal total farm area"
+              />
+            </div>
+          </div>
+
           {/* Bull/Base/Bear */}
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
             <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-4">
@@ -246,33 +273,6 @@ export default function ScenarioBuilder() {
                 <Bar dataKey="value" fill="#10b981" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
-          </div>
-
-          {/* Constraints */}
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
-            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-3">
-              Constraints
-            </h3>
-            <div className="space-y-2">
-              <ConstraintBadge
-                label="Stocking rate"
-                value={`${base.constraints.stocking_rate}/ha`}
-                ok={base.constraints.stocking_rate_ok}
-                warning={`exceeds ${baselineParams.max_stocking_rate}/ha max`}
-              />
-              <ConstraintBadge
-                label="Fallow ratio"
-                value={`${base.constraints.fallow_ratio}%`}
-                ok={base.constraints.fallow_ratio_ok}
-                warning={`below ${baselineParams.min_fallow_pct}% minimum`}
-              />
-              <ConstraintBadge
-                label="Total acres"
-                value={`${base.constraints.total_acres_allocated}/${baselineParams.total_acres}`}
-                ok={base.constraints.total_acres_ok}
-                warning="does not equal total farm area"
-              />
-            </div>
           </div>
 
           {/* Save */}
