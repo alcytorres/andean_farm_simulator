@@ -37,12 +37,18 @@ cd backend
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+createdb andean_farm_simulator   # once, if the DB does not exist
+export FLASK_APP=run.py
 flask db upgrade
 python seed.py
-flask run
+flask run --port 5001
 ```
 
+Keep this terminal open. Port **5001** avoids macOS using **5000** for AirPlay.
+
 ### Frontend Setup
+
+In a **second** terminal:
 
 ```bash
 cd frontend
@@ -50,7 +56,7 @@ npm install
 npm run dev
 ```
 
-The frontend runs on `http://localhost:5173` and proxies API requests to `http://localhost:5000`.
+The app is at `http://localhost:5173`. Vite proxies `/api/*` to `http://127.0.0.1:5001`. If you see `ECONNREFUSED` in the Vite terminal, the Flask server is not running (or is on a different port—update `frontend/vite.config.ts` to match).
 
 ## Project Context
 
