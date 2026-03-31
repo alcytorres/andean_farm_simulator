@@ -209,13 +209,21 @@ export default function Dashboard() {
             <span className="text-slate-400">Frost events/yr</span>
             <p className="font-semibold text-slate-700">{params.frost_events_per_year}</p>
           </div>
-          <div>
-            <span className="text-slate-400">Stocking rate</span>
+          <div className="relative group cursor-default">
+            <span className="text-slate-400 underline decoration-dotted decoration-slate-400">Stocking rate</span>
             <p className="font-semibold text-slate-700">{base.constraints.stocking_rate}/ha</p>
+            <div className="absolute bottom-full left-0 mb-2 hidden group-hover:block z-10 w-56 bg-slate-800 text-white text-xs rounded-lg px-3 py-2 shadow-lg leading-relaxed">
+              How many milking cows you have per hectare of pasture. A higher number means the land is working harder. The app flags it if it gets too high (above 4/ha).
+              <div className="absolute top-full left-4 border-4 border-transparent border-t-slate-800" />
+            </div>
           </div>
-          <div>
-            <span className="text-slate-400">Weather exposure</span>
+          <div className="relative group cursor-default">
+            <span className="text-slate-400 underline decoration-dotted decoration-slate-400">Weather exposure</span>
             <p className="font-semibold text-slate-700">{formatPct(base.weather_exposure_pct)}</p>
+            <div className="absolute bottom-full left-0 mb-2 hidden group-hover:block z-10 w-56 bg-slate-800 text-white text-xs rounded-lg px-3 py-2 shadow-lg leading-relaxed">
+              The share of revenue that comes from broccoli — the crop most vulnerable to hailstorms and frost. Higher means more of your income is at risk in a bad weather year.
+              <div className="absolute top-full left-4 border-4 border-transparent border-t-slate-800" />
+            </div>
           </div>
         </div>
       </div>
