@@ -29,6 +29,17 @@ export default function CompareScenarios() {
     });
   };
 
+  const handleDelete = async (id: number, name: string) => {
+    if (!window.confirm(`Delete scenario "${name}"?`)) return;
+    await api.deleteScenario(id);
+    setScenarios((prev) => prev.filter((s) => s.id !== id));
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.delete(id);
+      return next;
+    });
+  };
+
   if (loading) return <div className="p-8 text-slate-400">Loading...</div>;
 
   type CompareItem = {
@@ -98,17 +109,25 @@ export default function CompareScenarios() {
             </h3>
             <div className="flex flex-wrap gap-2">
               {scenarios.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => toggle(s.id)}
-                  className={`text-sm px-4 py-2 rounded-lg border transition-colors ${
-                    selected.has(s.id)
-                      ? "bg-emerald-600 text-white border-emerald-600"
-                      : "bg-white text-slate-600 border-slate-200 hover:border-emerald-300"
-                  }`}
-                >
-                  {s.name}
-                </button>
+                <div key={s.id} className="flex items-center gap-0.5">
+                  <button
+                    onClick={() => toggle(s.id)}
+                    className={`text-sm px-4 py-2 rounded-l-lg border transition-colors ${
+                      selected.has(s.id)
+                        ? "bg-emerald-600 text-white border-emerald-600"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-emerald-300"
+                    }`}
+                  >
+                    {s.name}
+                  </button>
+                  <button
+                    onClick={() => handleDelete(s.id, s.name)}
+                    title={`Delete "${s.name}"`}
+                    className="text-xs px-2 py-2 rounded-r-lg border border-slate-200 text-slate-400 hover:text-red-500 hover:border-red-300 hover:bg-red-50 transition-colors"
+                  >
+                    ✕
+                  </button>
+                </div>
               ))}
             </div>
           </div>
