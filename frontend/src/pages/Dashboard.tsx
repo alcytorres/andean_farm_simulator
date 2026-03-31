@@ -31,7 +31,7 @@ export default function Dashboard() {
     { name: "Flowers", value: params.flower_acres },
     { name: "Fallow", value: params.fallow_acres },
     { name: "Non-productive", value: params.non_productive_acres },
-  ];
+  ].sort((a, b) => b.value - a.value);
 
   const revenueData = [
     { name: "Milk", value: base.revenue.milk },
@@ -86,25 +86,44 @@ export default function Dashboard() {
           <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-4">
             Land Allocation ({params.total_acres} acres)
           </h3>
-          <ResponsiveContainer width="100%" height={260}>
-            <PieChart>
-              <Pie
-                data={landData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={100}
-                dataKey="value"
-                label={({ name, value }) => `${name} ${value}ac`}
-                labelLine={false}
-              >
-                {landData.map((_, i) => (
-                  <Cell key={i} fill={LAND_COLORS[i]} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(val: number) => `${val} acres`} />
-            </PieChart>
-          </ResponsiveContainer>
+          <div className="flex items-center gap-4">
+            <div className="shrink-0" style={{ width: 180, height: 180 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={landData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={52}
+                    outerRadius={82}
+                    dataKey="value"
+                    label={false}
+                    labelLine={false}
+                  >
+                    {landData.map((_, i) => (
+                      <Cell key={i} fill={LAND_COLORS[i % LAND_COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip formatter={(val: number, name: string) => [`${val} acres`, name]} />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex-1 space-y-1.5">
+              {landData.map((item, i) => {
+                const pct = ((item.value / params.total_acres) * 100).toFixed(1);
+                return (
+                  <div key={item.name} className="flex items-center gap-2">
+                    <span
+                      className="w-2.5 h-2.5 rounded-sm shrink-0"
+                      style={{ backgroundColor: LAND_COLORS[i % LAND_COLORS.length] }}
+                    />
+                    <span className="text-sm text-slate-600 flex-1">{item.name}</span>
+                    <span className="text-sm font-semibold text-slate-700">{pct}%</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Revenue Breakdown */}
