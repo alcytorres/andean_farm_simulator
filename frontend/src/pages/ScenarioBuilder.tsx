@@ -202,18 +202,21 @@ export default function ScenarioBuilder() {
                 value={`${base.constraints.stocking_rate}/ha`}
                 ok={base.constraints.stocking_rate_ok}
                 warning={`exceeds ${baselineParams.max_stocking_rate}/ha max`}
+                tooltip="How many milking cows you have per hectare of pasture. Too high and the land gets overworked. Must stay below 4/ha. Note 1 hectare ≈ 2.5 acres)"
               />
               <ConstraintBadge
                 label="Fallow ratio"
                 value={`${base.constraints.fallow_ratio}%`}
                 ok={base.constraints.fallow_ratio_ok}
                 warning={`below ${baselineParams.min_fallow_pct}% minimum`}
+                tooltip="The share of broccoli land left to rest each season. Resting land keeps the soil healthy. Must be at least 20%."
               />
               <ConstraintBadge
                 label="Total acres"
                 value={`${base.constraints.total_acres_allocated}/${baselineParams.total_acres}`}
                 ok={base.constraints.total_acres_ok}
                 warning="does not equal total farm area"
+                tooltip="All land uses must add up exactly to the farm's total size (243 acres). If they don't match, your scenario is invalid."
               />
             </div>
           </div>
