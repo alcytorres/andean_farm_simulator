@@ -4,7 +4,7 @@ const links = [
   { to: "/", label: "Dashboard", icon: "📊" },
   { to: "/builder", label: "Scenario Builder", icon: "🔧" },
   { to: "/compare", label: "Compare", icon: "⚖️" },
-  { to: "/climate", label: "Climate", icon: "🌦️" },
+  { to: "/climate", label: "Risk Cases", icon: "⚡" },
 ];
 
 export default function Sidebar() {
