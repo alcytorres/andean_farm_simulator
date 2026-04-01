@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import ScenarioBuilder from "./pages/ScenarioBuilder";
 import CompareScenarios from "./pages/CompareScenarios";
 import Climate from "./pages/Climate";
+import Findings from "./pages/Findings";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
             <Route path="/builder" element={<ScenarioBuilder />} />
             <Route path="/compare" element={<CompareScenarios />} />
             <Route path="/climate" element={<Climate />} />
+            <Route path="/findings" element={<Findings />} />
           </Routes>
         </main>
       </div>

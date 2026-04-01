@@ -5,6 +5,7 @@ const links = [
   { to: "/builder", label: "Scenario Builder", icon: "🔧" },
   { to: "/compare", label: "Compare", icon: "⚖️" },
   { to: "/climate", label: "Risk Cases", icon: "⚡" },
+  { to: "/findings", label: "Findings", icon: "💡" },
 ];
 
 export default function Sidebar() {
