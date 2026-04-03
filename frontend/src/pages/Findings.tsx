@@ -23,7 +23,7 @@ export default function Findings() {
       <div>
         <h2 className="text-2xl font-bold text-slate-800">Findings & Recommendation</h2>
         <p className="text-sm text-slate-500 mt-1">
-          What is the ideal land allocation for maximizing profit at Hacienda Yerovi?
+          What is the ideal land allocation for maximizing profit at this Andean Hacienda?
         </p>
       </div>
 
