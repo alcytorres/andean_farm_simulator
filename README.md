@@ -1,8 +1,14 @@
 # Andean Farm Simulator
 
-A scenario-based agricultural planning tool for Hacienda Yerovi, a mixed dairy and broccoli farm in the Cotopaxi highlands of Ecuador (~2,909m elevation).
+A scenario-based agricultural planning tool for Hacienda Yerovi, a mixed dairy and broccoli farm located in the Cotopaxi highlands of Ecuador at ~2,909 meters (9,544 ft) elevation.
 
 The simulator models land allocation, livestock, crop production, costs, and weather risk to answer: **which farm configuration produces the most profit given real-world constraints?**
+
+## Project Documentation & Analysis
+
+📄 Summary (2–3 min read) | [View Google Doc](https://docs.google.com/document/d/1yGW4azk0sb6uLwir5yvu0JsYctBFCGi41uoaaLFxz_M/edit?tab=t.0)
+📋 Full Technical Report | [View Google Doc](https://docs.google.com/document/d/152O_3XcQJst7SdzswKd7tGoZ0hiTvEc5p4CVXtapSIU/edit?tab=t.0)
+📊 Interactive Spreadsheet Model | [View Google Sheets](https://docs.google.com/spreadsheets/d/1piFMMD0oddgiiagxbS0Q9GxREtWFVSpc_Iu81TtX4X8/edit?gid=0#gid=0)
 
 ## Features
 
