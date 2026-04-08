@@ -18,10 +18,8 @@ def create_app(config_class=Config):
 
     from app.routes.baseline import baseline_bp
     from app.routes.scenarios import scenarios_bp
-    from app.routes.climate import climate_bp
 
     app.register_blueprint(baseline_bp, url_prefix="/api")
     app.register_blueprint(scenarios_bp, url_prefix="/api")
-    app.register_blueprint(climate_bp, url_prefix="/api")
 
     return app

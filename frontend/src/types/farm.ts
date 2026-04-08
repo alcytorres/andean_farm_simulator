@@ -94,14 +94,3 @@ export interface ScenarioData {
   created_at: string;
 }
 
-export interface ClimateData {
-  frost_events_by_year: { year: number; count: number }[];
-  temperature_by_month: { month: string; avg_min: number; avg_max: number }[];
-  precipitation_by_month: { month: string; avg_mm: number }[];
-  location: {
-    latitude: number;
-    longitude: number;
-    elevation_m: number;
-    name: string;
-  };
-}

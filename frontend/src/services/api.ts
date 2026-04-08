@@ -2,7 +2,6 @@ import type {
   BaselineResponse,
   ScenarioData,
   AllCases,
-  ClimateData,
 } from "../types/farm";
 
 const BASE = "/api";
@@ -52,10 +51,4 @@ export const api = {
     fetchJSON<{ message: string }>(`${BASE}/scenarios/${id}`, {
       method: "DELETE",
     }),
-
-  getClimate: (startYear = 2010, endYear?: number) => {
-    const params = new URLSearchParams({ start_year: String(startYear) });
-    if (endYear) params.set("end_year", String(endYear));
-    return fetchJSON<ClimateData>(`${BASE}/climate?${params}`);
-  },
 };

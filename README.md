@@ -15,7 +15,7 @@ The simulator models land allocation, livestock, crop production, costs, and wea
 - **Farm Dashboard** — View the current farm baseline: land allocation, revenue breakdown, cost structure, and key operational metrics.
 - **Scenario Builder** — Adjust any variable (land use, herd size, prices, weather) and see projected profit recalculate in real time. Every scenario auto-generates base, bull, and bear cases.
 - **Scenario Comparison** — Compare 2–4 saved scenarios side by side with grouped bar charts, a metrics table, and auto-generated insights (highest profit, highest risk, most stable).
-- **Climate Data** — Historical weather data from Open-Meteo showing frost trends, temperature ranges, and precipitation patterns. Defines the bull/bear case weather assumptions.
+- **Risk Cases** — Configure bull and bear case weather and price assumptions that apply globally across all scenario comparisons.
 
 ## Tech Stack
 
@@ -26,7 +26,6 @@ The simulator models land allocation, livestock, crop production, costs, and wea
 | Database | PostgreSQL |
 | Charts | Recharts |
 | Styling | Tailwind CSS |
-| Weather API | Open-Meteo (free, no key required) |
 
 ## Getting Started
 
