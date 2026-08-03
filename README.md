@@ -4,6 +4,8 @@ A scenario-based agricultural planning tool for Hacienda Yerovi, a mixed dairy a
 
 The simulator models land allocation, livestock, crop production, costs, and weather risk to answer: **which farm configuration produces the most profit given real-world constraints?**
 
+![App demo](demo_farm.gif)
+
 ## Project Documentation & Analysis
 
 📄 Summary (2–3 min read) | [View Google Doc](https://docs.google.com/document/d/1yGW4azk0sb6uLwir5yvu0JsYctBFCGi41uoaaLFxz_M/edit?tab=t.0)

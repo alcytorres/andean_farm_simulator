@@ -56,7 +56,7 @@ export default function Dashboard() {
 
   return (
     <div className="p-8 max-w-7xl">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Farm Dashboard</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">2025 Farm Dashboard</h2>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">

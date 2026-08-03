@@ -1,12 +1,12 @@
 const scenarios = [
-  { name: "Current (baseline)", base: 94891, bull: 173606, bear: 25043, vs: 0 },
-  { name: "More Broccoli +15ac", base: 117551, bull: 206735, bear: 39083, vs: 22661 },
-  { name: "More Broccoli +25ac", base: 119162, bull: 213135, bear: 37136, vs: 24272 },
-  { name: "Max Broccoli", base: 88036, bull: 191903, bear: 181, vs: -6854 },
-  { name: "More Dairy +15ac", base: 99223, bull: 171849, bear: 33617, vs: 4332 },
-  { name: "More Dairy +25ac", base: 104361, bull: 173292, bear: 41218, vs: 9470 },
-  { name: "Max Dairy", base: 106277, bull: 161935, bear: 52713, vs: 11386 },
-  { name: "Balanced Shift", base: 109998, bull: 195692, bear: 34403, vs: 15107 },
+  { name: "Current (baseline)", base: 94891, bull: 173606, bear: 25043, vs: 0, cows: 130 },
+  { name: "More Broccoli +15ac", base: 117551, bull: 206735, bear: 39083, vs: 22661, cows: 130 },
+  { name: "More Broccoli +25ac", base: 119162, bull: 213135, bear: 37136, vs: 24272, cows: 120 },
+  { name: "Max Broccoli", base: 88036, bull: 191903, bear: 181, vs: -6854, cows: 60 },
+  { name: "More Dairy +15ac", base: 99223, bull: 171849, bear: 33617, vs: 4332, cows: 150 },
+  { name: "More Dairy +25ac", base: 104361, bull: 173292, bear: 41218, vs: 9470, cows: 165 },
+  { name: "Max Dairy", base: 106277, bull: 161935, bear: 52713, vs: 11386, cows: 200 },
+  { name: "Balanced Shift", base: 109998, bull: 195692, bear: 34403, vs: 15107, cows: 130 },
 ];
 
 const fmt = (n: number) =>
@@ -46,6 +46,7 @@ export default function Findings() {
                 <th className="px-4 py-2.5 text-right">Bull Profit</th>
                 <th className="px-4 py-2.5 text-right">Bear Profit</th>
                 <th className="px-4 py-2.5 text-right">vs Current</th>
+                <th className="px-4 py-2.5 text-right">Cows</th>
               </tr>
             </thead>
             <tbody>
@@ -78,6 +79,7 @@ export default function Findings() {
                   >
                     {fmtSign(s.vs)}
                   </td>
+                  <td className="px-4 py-2.5 text-right font-mono text-slate-700">{s.cows}</td>
                 </tr>
               ))}
             </tbody>
@@ -145,9 +147,10 @@ export default function Findings() {
         <p className="text-slate-700 leading-relaxed">
           <strong>Shift 15 acres from pasture to broccoli</strong> (85/87 split). Keep all 130 cows.
           This adds ~$23,000/year in base profit, improves the worst-case scenario by $14,000, and
-          requires no herd reduction — just planting more broccoli on land that was pasture. In a
-          good year (bull case), profit jumps to $207K. Unlike "More Broccoli +25ac" (which edges
-          it out by $1,600), this option doesn't require cutting 10 cows from the herd.
+          requires no herd reduction. Just planting more broccoli on land that was pasture. In a
+          good year (bull case), profit jumps to $207K. "More Broccoli +25ac" makes a bit more in
+          base and bull profit, but requires cutting the herd to 120 cows. That is why +15ac is
+          the recommendation.
         </p>
         <p className="text-sm text-slate-600 leading-relaxed">
           <strong>If the family is more risk-averse</strong> and worried about hailstorms getting
