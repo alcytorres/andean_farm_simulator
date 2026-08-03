@@ -1,32 +1,36 @@
 # Andean Farm Simulator
 
-A scenario-based agricultural planning tool for Hacienda Yerovi, a mixed dairy and broccoli farm located in the Cotopaxi highlands of Ecuador at ~2,909 meters (9,544 ft) elevation.
-
-The simulator models land allocation, livestock, crop production, costs, and weather risk to answer: **which farm configuration produces the most profit given real-world constraints?**
+A profit simulator for my family farm in Ecuador. Compare land allocation options for dairy and broccoli, see base/bull/bear outcomes, and pick the setup that makes the remaining acres work hardest.
 
 ![App demo](demo_farm.gif)
 
-## Project Documentation & Analysis
+## What It Does
 
-📄 Summary (2–3 min read) | [View Google Doc](https://docs.google.com/document/d/1yGW4azk0sb6uLwir5yvu0JsYctBFCGi41uoaaLFxz_M/edit?tab=t.0)
-📊 Interactive Spreadsheet Model | [View Google Sheets](https://docs.google.com/spreadsheets/d/1piFMMD0oddgiiagxbS0Q9GxREtWFVSpc_Iu81TtX4X8/edit?gid=0#gid=0)
+Andean Farm Simulator models Hacienda Yerovi, a mixed dairy and broccoli farm in Cotopaxi, Ecuador. After a family land sale left the farm with fewer acres, the question became how to allocate what remains between pasture and broccoli under real weather risk.
 
-## Features
-
-- **Farm Dashboard** — View the current farm baseline: land allocation, revenue breakdown, cost structure, and key operational metrics.
-- **Scenario Builder** — Adjust any variable (land use, herd size, prices, weather) and see projected profit recalculate in real time. Every scenario auto-generates base, bull, and bear cases.
-- **Scenario Comparison** — Compare 2–4 saved scenarios side by side with grouped bar charts, a metrics table, and auto-generated insights (highest profit, highest risk, most stable).
-- **Risk Cases** — Configure bull and bear case weather and price assumptions that apply globally across all scenario comparisons.
+The web app lets you view the current farm baseline, adjust land, herd, prices, and weather assumptions, and see profit recalculate live across base, bull, and bear cases. You can save scenarios, compare them side by side, and read the final recommendation. A companion spreadsheet goes deeper with Expected Value and an Adjusted Score that also accounts for herd size and how big a land shift each option requires.
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Backend | Python, Flask, SQLAlchemy |
-| Frontend | React, TypeScript, Vite |
+| Layer | Tools |
+|-------|-------|
+| Backend | Python, Flask, SQLAlchemy, Flask-Migrate |
+| Frontend | React, TypeScript, Vite, Tailwind CSS, Recharts |
 | Database | PostgreSQL |
-| Charts | Recharts |
-| Styling | Tailwind CSS |
+| Analysis | Google Sheets |
+
+## Features
+
+- **Dashboard:** Current land allocation, revenue, costs, and key farm metrics
+- **Scenario Builder:** Change land, herd, prices, or weather and see profit update live
+- **Compare:** Put saved scenarios side by side with charts and insights
+- **Risk Cases:** Edit bull and bear weather and price assumptions
+- **Findings:** Scenario comparison, key takeaways, and the recommended allocation
+
+## Project Write-up
+
+- [Summary (2–3 min read)](https://docs.google.com/document/d/1yGW4azk0sb6uLwir5yvu0JsYctBFCGi41uoaaLFxz_M/edit?tab=t.0)
+- [Interactive Spreadsheet Model](https://docs.google.com/spreadsheets/d/1piFMMD0oddgiiagxbS0Q9GxREtWFVSpc_Iu81TtX4X8/edit?gid=0#gid=0)
 
 ## Getting Started
 
@@ -36,7 +40,7 @@ The simulator models land allocation, livestock, crop production, costs, and wea
 - Node.js 18+
 - PostgreSQL 14+
 
-### Backend Setup
+### Backend
 
 ```bash
 cd backend
@@ -52,9 +56,9 @@ flask run --port 5001
 
 Keep this terminal open. Port **5001** avoids macOS using **5000** for AirPlay.
 
-### Frontend Setup
+### Frontend
 
-In a **second** terminal:
+In a second terminal:
 
 ```bash
 cd frontend
@@ -62,8 +66,4 @@ npm install
 npm run dev
 ```
 
-The app is at `http://localhost:5173`. Vite proxies `/api/*` to `http://127.0.0.1:5001`. If you see `ECONNREFUSED` in the Vite terminal, the Flask server is not running (or is on a different port—update `frontend/vite.config.ts` to match).
-
-## Project Context
-
-Hacienda Yerovi is a ~243-acre family farm in Joseguango Bajo, Latacunga, Cotopaxi, Ecuador. The farm produces dairy milk (130-cow milking herd), contract broccoli for Ecofroz, and earns commission from a flower lease operation. Since ~2020, increased hailstorm and frost frequency has created revenue volatility, making scenario planning essential for optimizing the farm's land allocation strategy.
+Open `http://localhost:5173`. Vite proxies `/api/*` to `http://127.0.0.1:5001`. If you see `ECONNREFUSED`, the Flask server is not running (or is on a different port).
