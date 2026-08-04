@@ -29,5 +29,5 @@ The web app lets you view the current farm baseline, adjust land, herd, prices, 
 
 ## Project Write-up
 
-- [Summary (2–3 min read)](https://docs.google.com/document/d/1yGW4azk0sb6uLwir5yvu0JsYctBFCGi41uoaaLFxz_M/edit?tab=t.0)
+- [Summary (3–5 min read)](https://docs.google.com/document/d/1yGW4azk0sb6uLwir5yvu0JsYctBFCGi41uoaaLFxz_M/edit?tab=t.0)
 - [Interactive Spreadsheet Model](https://docs.google.com/spreadsheets/d/1piFMMD0oddgiiagxbS0Q9GxREtWFVSpc_Iu81TtX4X8/edit?gid=0#gid=0)
